@@ -1,11 +1,16 @@
 import { ITask } from "./types/tasks";
+// Importando módulos do Node.js para ler arquivos
+import fs from 'fs/promises';
+import path from 'path';
 
 const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3001';
 
 export const getAllTodos = async (): Promise<ITask[]> => {
-  const res = await fetch(`${baseUrl}/tasks`, { cache: 'no-store' });
-  const todos = await res.json();
-  return todos;
+  // Lendo diretamente do arquivo db.json no servidor
+  const filePath = path.join(process.cwd(), 'db.json');
+  const data = await fs.readFile(filePath, 'utf8');
+  const todos = JSON.parse(data);
+  return todos.tasks;
 }
 
 export const addTodo = async (todo: ITask): Promise<ITask> => {
