@@ -19,18 +19,28 @@ const Task: React.FC<TaskProps> = ({ task }) => {
 
   const handleSubmitEditTodo: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    await editTodo({
-      id: task.id,
-      text: taskToEdit,
-    });
-    setOpenModalEdit(false);
-    router.refresh();
+    try {
+      await editTodo({
+        id: task.id,
+        text: taskToEdit,
+      });
+      setOpenModalEdit(false);
+      router.refresh();
+    } catch (err) {
+      console.error('Failed to edit todo', err);
+      alert('Erro ao editar tarefa. Verifique se a API está disponível.');
+    }
   };
 
   const handleDeleteTask = async (id: string) => {
-    await deleteTodo(id);
-    setOpenModalDeleted(false);
-    router.refresh();
+    try {
+      await deleteTodo(id);
+      setOpenModalDeleted(false);
+      router.refresh();
+    } catch (err) {
+      console.error('Failed to delete todo', err);
+      alert('Erro ao deletar tarefa. Verifique se a API está disponível.');
+    }
   };
 
   return (

@@ -14,13 +14,19 @@ const AddTask = () => {
 
   const handleSubmitNewTodo: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    await addTodo({
-      id: uuidv4(),
-      text: newTaskValue,
-    });
-    setNewTaskValue("");
-    setModalOpen(false);
-    router.refresh();
+    try {
+      await addTodo({
+        id: uuidv4(),
+        text: newTaskValue,
+      });
+      setNewTaskValue("");
+      setModalOpen(false);
+      router.refresh();
+    } catch (err) {
+      console.error('Failed to add todo', err);
+      // Inform the user without crashing the UI
+      alert('Erro ao adicionar tarefa. Verifique se a API está disponível.');
+    }
   };
 
   return (

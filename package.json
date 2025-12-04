@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"next dev\" \"json-server --watch data/todos.json --port 3001\"",
+    "dev": "concurrently \"json-server --watch data/db.json --port 3001\" \"wait-on http://localhost:3001/tasks -t 10000 && next dev\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "json-server": "json-server --watch data/todos.json --port 3001"
+    "json-server": "json-server --watch data/db.json --port 3001"
   },
   
   "dependencies": {
@@ -30,6 +30,7 @@
     "concurrently": "^9.2.1",
     "json-server": "^0.17.3",
     "postcss": "^8.4.21",
-    "tailwindcss": "^3.3.1"
+    "tailwindcss": "^3.3.1",
+    "wait-on": "^7.2.0"
   }
 }
