@@ -63,7 +63,7 @@ Siga os passos abaixo para executar o projeto em seu ambiente local.
 
 1.  Clone o repositório para sua máquina local:
     ```bash
-    git clone https://github.com/seu-usuario/simple-todoapp-with-next13-main.git
+    git clone https://github.com/raikysilva/simple-todoapp-with-next13.git
     ```
 
 2.  Navegue até o diretório do projeto:
@@ -104,4 +104,4 @@ A aplicação utiliza rotas de API do Next.js para manipular os dados do arquivo
 
 ---
 
-Feito com ❤️ por Seu Nome.
+Feito com ❤️ por [Raiky Silva](https://github.com/raikysilva).
