@@ -68,7 +68,7 @@ Siga os passos abaixo para executar o projeto em seu ambiente local.
 
 2.  Navegue até o diretório do projeto:
     ```bash
-    cd simple-todoapp-with-next13-main
+    cd simple-todoapp-with-next13
     ```
 
 3.  Instale as dependências do projeto:
@@ -82,7 +82,7 @@ Siga os passos abaixo para executar o projeto em seu ambiente local.
 
 ### Executando a Aplicação
 
-1.  Inicie o servidor de desenvolvimento:
+1.  Inicie o servidor de desenvolvimento e a api:
     ```bash
     npm run dev
     # ou
@@ -90,6 +90,7 @@ Siga os passos abaixo para executar o projeto em seu ambiente local.
     # ou
     pnpm dev
     ```
+
 
 2.  Abra seu navegador e acesse http://localhost:3000 para ver a aplicação em funcionamento.
 
